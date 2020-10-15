@@ -1,0 +1,11 @@
+# redis systemctl 启动脚本, 置于 /lib/systemd/system目录下
+[Unit]
+Description=Redis
+After=network.target
+
+[Service]
+ExecStart=/usr/local/redis/bin/redis-server /etc/redis.conf
+ExecStop=/usr/local/redis/bin/redis-cli shutdwon
+
+[Install]
+WantedBy=muti-user.target
